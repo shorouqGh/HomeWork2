@@ -1,16 +1,16 @@
 <project default="compile">
-   <property name="src.java.dir" location="./src/Mylib"/>  
+   <property name="src.java.dir" location="./src"/>  
    <property name="result.dir" location="./target"/> 
   <property name="result.javaclasses.dir" location="${result.dir}/classes"/>  
    <path id="NecessaryLibraries"> 
-  <pathelement location="./Mylib/junit-4.12.jar"/>  
+  <pathelement location="./mylib/junit-4.12.jar"/>  
  <!--matcher--> 
-  <pathelement location="./Mylib/hamcrest-core-1.3.jar"/> 
-  <!--<pathelement location="./Mylib/selenium-server-standalone-3.9.1.jar"/>-->
+  <pathelement location="./mylib/hamcrest-core-1.3.jar"/> 
+  <!--<pathelement location="./mylib/selenium-server-standalone-3.9.1.jar"/>-->
      </path>
 	<target name="compile"> 
 		<mkdir dir="${result.javaclasses.dir}"/>  
- <javac srcdir="${src.java.dir}" destdir="${result.javaclasses.dir}" debug="true" includeantruntime="false">      
+<javac srcdir="${src.java.dir}" destdir="${result.javaclasses.dir}" debug="true" includeantruntime="false">      
    <classpath>
   <path refid="NecessaryLibraries"/>  
  <pathelement location="${result.javaclasses.dir}"/>   
@@ -27,7 +27,7 @@
   <formatter type="brief" usefile="false"/>  
  <batchtest > 
   <fileset dir="${result.javaclasses.dir}" >  
-<include name="**/*Test.class"/> 
+<include name="**/*test.class"/> 
  </fileset>  
  </batchtest>     
  </junit>  
